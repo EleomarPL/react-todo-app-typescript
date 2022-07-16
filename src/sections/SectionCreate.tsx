@@ -1,10 +1,13 @@
 import styled from 'styled-components'
-import { FormEvent, useRef } from 'react'
+import { useRef } from 'react'
+
+import ImagePNG from '../img/added.png'
+import ImageWEBP from '../img/added.webp'
 
 const SectionCreate = () => {
   const formRef = useRef<HTMLFormElement>(null)
 
-  const handleAddTask = (evt: FormEvent<HTMLFormElement>) => {
+  const handleAddTask = (evt: any) => {
     evt.preventDefault()
     formRef.current?.reset()
   }
@@ -27,9 +30,9 @@ const SectionCreate = () => {
       </form>
       <picture>
         <source
-          srcSet={ new URL('../img/added.webp', import.meta.url) }
+          srcSet={ ImageWEBP }
         />
-        <Image src={ new URL('../img/added.png', import.meta.url) }
+        <Image src={ ImagePNG }
           alt="Add Task"
         />
       </picture>
