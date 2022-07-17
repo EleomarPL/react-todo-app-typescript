@@ -4,11 +4,17 @@ import { useRef } from 'react'
 import ImagePNG from '../img/added.png'
 import ImageWEBP from '../img/added.webp'
 
+import useTodoS from '../hooks/useTodoS'
+
 const SectionCreate = () => {
   const formRef = useRef<HTMLFormElement>(null)
+  const { addNewTodo } = useTodoS()
 
   const handleAddTask = (evt: any) => {
     evt.preventDefault()
+
+    const valueInput: string = evt.target[0].value.toString()
+    addNewTodo(valueInput)
     formRef.current?.reset()
   }
 
