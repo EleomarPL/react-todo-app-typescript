@@ -1,4 +1,5 @@
 import { Modal } from 'bootstrap'
+import useTodoS from '../hooks/useTodoS'
 
 export const openModalCreateTodo = () => {
   const modal = document.getElementById('ModalCreateTodo') as HTMLElement
@@ -13,6 +14,19 @@ export const openModalCreateTodo = () => {
 }
 
 const ModalCreateTodo = () => {
+  const { addNewTodo } = useTodoS()
+
+  const handleCreateTodo = (evt: any) => {
+    evt.preventDefault()
+
+    const getModal = document.getElementById('ModalCreateTodo') as HTMLElement
+    const modalCreate = Modal.getInstance(getModal)
+    addNewTodo(
+      evt.target[0].value
+    )
+    modalCreate?.hide()
+  }
+
   return (
     <div className="modal fade" id="ModalCreateTodo"
       data-bs-backdrop="static" data-bs-keyboard="false"
@@ -29,7 +43,7 @@ const ModalCreateTodo = () => {
             <button type="button" className="btn-close"
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form className="modal-body">
+          <form className="modal-body" onSubmit={ handleCreateTodo }>
             <div className="input-group mb-3">
               <label className="input-group-text" htmlFor='titulo'>
                 Nueva Tarea
