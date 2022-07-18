@@ -1,13 +1,13 @@
 import { Modal } from 'bootstrap'
 
 export const openModalCreateTodo = () => {
-  const modalTecnologico = new Modal(
+  const modalCreate = new Modal(
     document.getElementById('ModalCreateTodo'), {
       keyboard: true,
       focus: true
     }
   )
-  modalTecnologico.show()
+  modalCreate.show()
 }
 
 const ModalCreateTodo = () => {
