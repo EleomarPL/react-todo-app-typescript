@@ -1,8 +1,10 @@
 import { Modal } from 'bootstrap'
 
 export const openModalCreateTodo = () => {
+  const modal = document.getElementById('ModalCreateTodo') as HTMLElement
+
   const modalCreate = new Modal(
-    document.getElementById('ModalCreateTodo'), {
+    modal, {
       keyboard: true,
       focus: true
     }
