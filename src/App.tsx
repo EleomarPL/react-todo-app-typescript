@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
+import { Suspense, lazy } from 'react'
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -7,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import SectionCreate from './sections/SectionCreate'
 import SectionList from './sections/SectionList'
 import { ProviderContextTodoS } from './contexts/ContextTodoS'
-import ModalCreateTodo, { openModalCreateTodo } from './components/ModalCreateTodo'
+import { openModalCreateTodo } from './components/ModalCreateTodo'
+
+const ModalCreateTodo = lazy(() => import('./components/ModalCreateTodo'))
 
 const App = () => {
   const esTablet = useMediaQuery({ query: '(max-width: 1000px)' })
@@ -26,7 +29,9 @@ const App = () => {
         }
         <SectionList />
       </Container>
-      <ModalCreateTodo />
+      <Suspense fallback={ <p>Cargando...</p> }>
+        <ModalCreateTodo />
+      </Suspense>
     </ProviderContextTodoS>
   )
 }
