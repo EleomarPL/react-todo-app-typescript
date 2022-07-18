@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import SectionCreate from './sections/SectionCreate'
 import SectionList from './sections/SectionList'
+import SpinnerLoadingPage from './components/SpinnerLoadingPage'
 import { ProviderContextTodoS } from './contexts/ContextTodoS'
 import { openModalCreateTodo } from './components/ModalCreateTodo'
 
@@ -29,7 +30,7 @@ const App = () => {
         }
         <SectionList />
       </Container>
-      <Suspense fallback={ <p>Cargando...</p> }>
+      <Suspense fallback={ <SpinnerLoadingPage /> }>
         <ModalCreateTodo />
       </Suspense>
     </ProviderContextTodoS>
