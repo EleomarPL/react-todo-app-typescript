@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-// import uniqid from 'uniqid'
 import { nanoid } from 'nanoid'
 
 import ContextTodoS from '../contexts/ContextTodoS'
@@ -40,11 +39,16 @@ const useTodoS = () => {
     window.localStorage.setItem('todoS', JSON.stringify(newTodoS))
     if (context.setTodoS) context.setTodoS(newTodoS || [])
   }
+  const searchTodo = (value: string): Todo[] => {
+    const filterTodos = context.todoS?.filter(todo => todo.value.includes(value))
+    return filterTodos || []
+  }
 
   return {
     addNewTodo,
     removeTodo,
-    toggleTodo
+    toggleTodo,
+    searchTodo
   }
 }
 
