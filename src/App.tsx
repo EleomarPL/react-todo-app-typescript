@@ -20,9 +20,7 @@ const App = () => {
     <ProviderContextTodoS>
       <Container className="row row-cols-lg-2 g-0">
         { esTablet
-          ? <ButtonModal className="btn btn-primary"
-              onClick={ openModalCreateTodo }
-            >
+          ? <ButtonModal className="btn btn-primary" onClick={ openModalCreateTodo }>
             <span className="visually-hidden">Agregar modal</span>
             +
           </ButtonModal>

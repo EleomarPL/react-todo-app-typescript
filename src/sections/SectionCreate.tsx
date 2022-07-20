@@ -30,17 +30,11 @@ const SectionCreate = () => {
         <textarea className="form-control"
           id="newtask" placeholder="Nueva tarea"
         />
-        <Button>
-          Crear Tarea
-        </Button>
+        <Button>Crear Tarea</Button>
       </form>
       <picture>
-        <source
-          srcSet={ ImageWEBP }
-        />
-        <Image src={ ImagePNG }
-          alt="Add Task"
-        />
+        <source srcSet={ ImageWEBP } />
+        <Image src={ ImagePNG } alt="Add Task" />
       </picture>
     </Section>
   )
